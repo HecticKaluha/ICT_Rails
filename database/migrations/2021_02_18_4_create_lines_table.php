@@ -15,6 +15,9 @@ class CreateLinesTable extends Migration
     {
         Schema::create('lines', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('startLocation');
+            $table->string('endLocation');
             $table->timestamps();
         });
     }
