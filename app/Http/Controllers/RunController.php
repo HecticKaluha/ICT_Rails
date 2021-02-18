@@ -14,7 +14,8 @@ class RunController extends Controller
      */
     public function index()
     {
-        //
+        $runs = Run::all();
+        return view('run.index', compact('runs'));
     }
 
     /**

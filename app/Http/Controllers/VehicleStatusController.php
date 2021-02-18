@@ -14,7 +14,8 @@ class VehicleStatusController extends Controller
      */
     public function index()
     {
-        //
+        $vehicleStatuses = VehicleStatus::all();
+        return view('vehicle.vehicleStatus.index', compact('vehicleStatuses'));
     }
 
     /**

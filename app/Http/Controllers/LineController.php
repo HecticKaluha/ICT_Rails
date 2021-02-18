@@ -14,7 +14,8 @@ class LineController extends Controller
      */
     public function index()
     {
-        //
+        $lines = Line::all();
+        return view('line.index', compact('lines'));
     }
 
     /**

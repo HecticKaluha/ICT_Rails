@@ -14,7 +14,8 @@ class DepotLineCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $depotLineCategories = DepotLineCategory::all();
+        return view('depot.depotLineCategory.index', compact('depotLineCategories'));
     }
 
     /**

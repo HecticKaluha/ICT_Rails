@@ -14,7 +14,8 @@ class DepotController extends Controller
      */
     public function index()
     {
-        //
+        $depots = Depot::all();
+        return view('depot.index', compact('depots'));
     }
 
     /**
