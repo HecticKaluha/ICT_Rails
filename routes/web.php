@@ -13,6 +13,7 @@ use App\Http\Controllers\VehicleClassController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\VehicleStatusController;
 use App\Http\Controllers\VehicleTypeController;
+use App\Models\Line;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,11 @@ Route::get('/vehicle-type', [VehicleTypeController::class, 'index'])->name('vehi
 Route::get('/vehicle-status', [VehicleStatusController::class, 'index'])->name('vehicleStatusIndex');
     //->middleware(['auth'])->name('depots');
 
+
+Route::get('/test', function(){
+    $data = Line::all();
+    return view('test.test', compact('data'));
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

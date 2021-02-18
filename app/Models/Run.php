@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Run extends Model
 {
     use HasFactory;
+
+    public function lines(){
+        return $this->belongsTo(Line::class);
+    }
 }
