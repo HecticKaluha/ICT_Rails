@@ -16,12 +16,14 @@ class CreateDepotLinesTable extends Migration
         Schema::create('depot_lines', function (Blueprint $table) {
             $table->id();
             $table->integer('lineNr')->unique();
+            $table->unsignedBigInteger('depotLine_Id');
             $table->unsignedBigInteger('depotLineCategory_Id');
             $table->integer('length');
             $table->boolean('blocked')->default(false);
             $table->timestamps();
 
             $table->foreign('depotLineCategory_Id')->references('id')->on('depot_line_categories');
+            $table->foreign('depotLine_Id')->references('id')->on('depots');
         });
     }
 
