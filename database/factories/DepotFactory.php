@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Line;
+use App\Models\Depot;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LineFactory extends Factory
+class DepotFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Line::class;
+    protected $model = Depot::class;
 
     /**
      * Define the model's default state.
@@ -21,11 +21,10 @@ class LineFactory extends Factory
      */
     public function definition()
     {
-        static $number = 1;
         return [
-            'name' => $number++,
-            'startLocation' => $this->faker->streetAddress,
-            'endLocation' => $this->faker->streetAddress,
+            'name' => 'Remise '. $this->faker->streetName,
+            'city' => $this->faker->city,
+            'country' => $this->faker->country,
         ];
     }
 }

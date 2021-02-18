@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class DatabaseSeeder extends Seeder
 {
 
-    protected $toTruncate = ['roles','users'];
+    protected $toTruncate = ['vehicle_classes', 'vehicle_types', 'vehicle_statuses' , 'roles','lines', 'service_statuses','depot_line_categories', 'depots', 'depot_lines','service_types','users', 'vehicles', 'services'];
     /**
      * Seed the application's database.
      *
@@ -31,10 +31,18 @@ class DatabaseSeeder extends Seeder
         $this->call(VehicleStatusSeeder::class);
         $this->call(RoleSeeder::class);
         $this->call(LineSeeder::class);
+        $this->call(ServiceTypeSeeder::class);
+        $this->call(ServiceStatusSeeder::class);
+        $this->call(DepotLineCategorySeeder::class);
+
 
 
         $this->call(UserSeeder::class);
-//        $this->call(VehicleSeeder::class);
+        $this->call(VehicleSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(DepotSeeder::class);
+        $this->call(DepotLineSeeder::class);
+
 
 
         // \App\Models\User::factory(10)->create();

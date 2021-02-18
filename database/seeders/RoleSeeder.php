@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
         }
 
         DB::table('roles')->insert([
-            'name' => 'roles',
+            'name' => 'Admin',
         ]);
         $this->command->info("Seeded role Admin");
 
