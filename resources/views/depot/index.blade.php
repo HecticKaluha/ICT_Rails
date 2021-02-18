@@ -4,6 +4,12 @@
 @endpush
 @section('content')
 @foreach($depots as $depot)
-    <p>{{$depot->city}}</p>
+    <p>{{$depot->name}}</p>
+    <ul>
+        @foreach($depot->depotLines as $depotLine)
+            <li>{{$depotLine->lineNr}} : {{$depotLine->depotLineCategories->name}}</li>
+        @endforeach
+    </ul>
+
 @endforeach
 @endsection

@@ -3,7 +3,6 @@
 @endpush
 @section('content')
     @foreach($depotLines as $depotLine)
-        <p>{{$depotLine}}</p>
-        <p>{{$depotLine->depotLineCategory}}</p>
+        <p>{{$depotLine->lineNr}} : {{$depotLine->depotLineCategories->name}}</p>
     @endforeach
 @endsection

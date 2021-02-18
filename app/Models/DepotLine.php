@@ -9,8 +9,12 @@ class DepotLine extends Model
 {
     use HasFactory;
 
-    public function depotLineCategory()
+    public function depotLineCategories()
     {
-        return $this->belongsTo(DepotLineCategory::class);
+        return $this->belongsTo(DepotLineCategory::class, 'depotLineCategory_Id');
+    }
+
+    public function depot(){
+        return $this->belongsTo(Depot::class);
     }
 }
