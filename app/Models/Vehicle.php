@@ -12,4 +12,12 @@ class Vehicle extends Model
     public function runs(){
         return $this->hasMany(Run::class,'vehicle_id');
     }
+
+    public function depotLines(){
+        return $this->belongsToMany(DepotLine::class, 'depotLine_vehicle', 'vehicle_id','depotLine_id');
+    }
+
+    public function depotLine(){
+        return $this->depotLines()->where('current', 1)->limit(1);
+    }
 }

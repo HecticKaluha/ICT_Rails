@@ -19,6 +19,7 @@ class CreateDepotLineVehicleTable extends Migration
             $table->unsignedBigInteger('vehicle_id');
             $table->integer('startPosition');
             $table->integer('endPosition');
+            $table->boolean('current');
 
             $table->foreign('depotLine_id')->references('id')->on('depot_lines');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');

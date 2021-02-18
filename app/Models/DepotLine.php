@@ -17,4 +17,12 @@ class DepotLine extends Model
     public function depot(){
         return $this->belongsTo(Depot::class);
     }
+
+    public function vehicles(){
+        return $this->belongsToMany(Vehicle::class, 'depotLine_vehicle', 'depotLine_id','vehicle_id');
+    }
+
+    public function vehicle(){
+        return $this->vehicles()->where('current', '=', '1')->limit(1);
+    }
 }

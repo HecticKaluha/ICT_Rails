@@ -1,1 +1,1 @@
-{{$data->first()->vehicles}}
+{{$data->first()->vehicle}}

@@ -45,7 +45,7 @@ Route::get('/vehicle-status', [VehicleStatusController::class, 'index'])->name('
 
 
 Route::get('/test', function(){
-    $data = \App\Models\Run::all();
+    $data = \App\Models\DepotLine::all();
     return view('test.test', compact('data'));
 });
 Route::get('/dashboard', function () {

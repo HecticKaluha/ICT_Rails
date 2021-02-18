@@ -28,7 +28,6 @@ class VehicleFactory extends Factory
 
         return [
             'vehicleNr' => $this->faker->unique()->randomNumber($nbDigits = 5),
-            'line_id' => Line::inRandomOrder()->first()->id,
             'vehicleType_id' => VehicleType::inRandomOrder()->first()->id,
             'vehicleClass_id' => VehicleClass::inRandomOrder()->first()->id,
             'vehicleStatus_id' => VehicleStatus::inRandomOrder()->first()->id,
