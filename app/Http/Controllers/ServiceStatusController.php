@@ -14,7 +14,8 @@ class ServiceStatusController extends Controller
      */
     public function index()
     {
-        //
+        $serviceStatuses = ServiceStatus::all();
+        return view('service.serviceStatus.index', compact('serviceStatuses'));
     }
 
     /**

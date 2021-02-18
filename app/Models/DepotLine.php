@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DepotLine extends Model
 {
     use HasFactory;
+
+    public function depotLineCategory()
+    {
+        return $this->belongsTo(DepotLineCategory::class);
+    }
 }

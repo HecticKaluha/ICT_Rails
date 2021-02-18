@@ -14,7 +14,8 @@ class DepotLineController extends Controller
      */
     public function index()
     {
-        //
+        $depotLines = DepotLine::all();
+        return view('depot.depotLine.index', compact('depotLines'));
     }
 
     /**

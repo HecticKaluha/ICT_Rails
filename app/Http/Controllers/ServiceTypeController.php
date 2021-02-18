@@ -14,7 +14,8 @@ class ServiceTypeController extends Controller
      */
     public function index()
     {
-        //
+        $serviceTypes = ServiceType::all();
+        return view('service.serviceType.index', compact('serviceTypes'));
     }
 
     /**
