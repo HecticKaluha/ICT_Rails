@@ -24,6 +24,7 @@ class CreateServicesTable extends Migration
             $table->dateTime('startTime')->nullable();
             $table->dateTime('endTime')->nullable();
             $table->timestamps();
+
             $table->foreign('registerUser_id')->references('id')->on('users');
             $table->foreign('serviceUser_id')->references('id')->on('users');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
@@ -40,5 +41,10 @@ class CreateServicesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('services');
+
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('vehicles');
+        Schema::dropIfExists('service_types');
+        Schema::dropIfExists('service_statuses');
     }
 }

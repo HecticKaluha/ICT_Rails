@@ -12,4 +12,12 @@ class Run extends Model
     public function lines(){
         return $this->belongsTo(Line::class);
     }
+
+    public function vehicles(){
+        return $this->belongsTo(Vehicle::class,'vehicle_id');
+    }
+
+    public function driver(){
+        return $this->belongsTo(User::class,'driverUser_id');
+    }
 }

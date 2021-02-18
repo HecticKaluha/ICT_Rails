@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRunsTable extends Migration
+class CreateDepotLineVehicleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateRunsTable extends Migration
      */
     public function up()
     {
-        Schema::create('runs', function (Blueprint $table) {
+        Schema::create('depotLine_vehicle', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('line_id');
-            $table->unsignedBigInteger('driverUser_id');
+            $table->unsignedBigInteger('depotLine_id');
             $table->unsignedBigInteger('vehicle_id');
-            $table->dateTime('startTime');
-            $table->dateTime('endTime');
-            $table->timestamps();
+            $table->integer('startPosition');
+            $table->integer('endPosition');
 
-            $table->foreign('line_id')->references('id')->on('lines');
-            $table->foreign('driverUser_id')->references('id')->on('users');
+            $table->foreign('depotLine_id')->references('id')->on('depot_lines');
             $table->foreign('vehicle_id')->references('id')->on('vehicles');
+
+
+            $table->timestamps();
         });
     }
 
@@ -35,9 +35,14 @@ class CreateRunsTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('depotLine_vehicle');
+        Schema::dropIfExists('depot_lines');
+
+        Schema::dropIfExists('services');
+        Schema::dropIfExists('runs');
         Schema::dropIfExists('lines');
         Schema::dropIfExists('users');
+        Schema::dropIfExists('roles');
         Schema::dropIfExists('vehicles');
-        Schema::dropIfExists('runs');
     }
 }

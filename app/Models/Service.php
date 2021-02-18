@@ -9,13 +9,13 @@ class Service extends Model
 {
     use HasFactory;
 
-    public function serviceTypes()
+    public function serviceType()
     {
-        return $this->belongsTo(ServiceType::class, 'serviceType_Id');
+        return $this->belongsTo(ServiceType::class, 'serviceType_id');
     }
 
-    public function serviceStatuses()
+    public function serviceStatus()
     {
-        return $this->belongsTo(ServiceStatus::class, 'serviceStatus_Id');
+        return $this->belongsTo(ServiceStatus::class, 'serviceStatus_id');
     }
 }

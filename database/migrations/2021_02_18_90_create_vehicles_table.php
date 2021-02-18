@@ -16,14 +16,12 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
             $table->integer('vehicleNr')->unique();
-            $table->unsignedBigInteger('line_id')->nullable();
             $table->unsignedBigInteger('vehicleType_id');
             $table->unsignedBigInteger('vehicleClass_id');
             $table->unsignedBigInteger('vehicleStatus_id');
             $table->integer('length');
             $table->timestamps();
 
-            $table->foreign('line_id')->references('id')->on('lines');
             $table->foreign('vehicleType_id')->references('id')->on('vehicle_types');
             $table->foreign('vehicleClass_id')->references('id')->on('vehicle_classes');
             $table->foreign('vehicleStatus_id')->references('id')->on('vehicle_statuses');
@@ -39,5 +37,9 @@ class CreateVehiclesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('vehicles');
+
+        Schema::dropIfExists('vehicles_types');
+        Schema::dropIfExists('vehicles_classes');
+        Schema::dropIfExists('vehicles_statuses');
     }
 }

@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     use HasFactory;
+
+    public function runs(){
+        return $this->hasMany(Run::class,'vehicle_id');
+    }
 }

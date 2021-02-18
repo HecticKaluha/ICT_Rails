@@ -35,5 +35,8 @@ class CreateDepotLinesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('depot_lines');
+
+        Schema::dropIfExists('depot_line_categories');
+        Schema::dropIfExists('depots');
     }
 }
